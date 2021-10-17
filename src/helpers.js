@@ -6,16 +6,3 @@ export const compressedPokeData = (fullPokeData) => ({
   pokemon: { name: fullPokeData.name, url: getPokeURL(fullPokeData) },
   slot: null // don't use so don't care
 });
-
-export const debounce = (func, wait) => {
-  let timeout;
-  
-  return function executedFunction(...args) {
-    const later = () => {
-      timeout = null;
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-};
